@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+          <link rel="stylesheet" href="exploration3.css">
+        
+          <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+
+        
+        <title>Exploration #3</title>
+        
+    </head>
+ 
+    <body>
+        
+                
+                <div id="tabs" class="container">
+                    <h1>Christopher Rehagen - University of Missouri</h1><br>
+                    <div class="tabs">
+                        <a v-on:click="activetab=1" v-bind:class="[ activetab === 1 ? 'active' : '' ]">Introduction</a>
+                        <a v-on:click="activetab=2" v-bind:class="[ activetab === 2 ? 'active' : '' ]">About Me</a>
+                        <a v-on:click="activetab=3" v-bind:class="[ activetab === 3 ? 'active' : '' ]">Links</a>
+                    </div>
+
+                    <div class="content">
+                        <div v-if="activetab === 1" class="tabcontent">
+                            Welcome to my Exploration #3 where I am using VueJS. The idea behind this project was to so serve as a personal page for me/the user. 
+                            <br><br>
+                            In my Exploration #1 assignment, I explored using tabs and displaying different content when switching between each tab. For this project, however, I wanted to go a bit further by making it a sort of personal "about me" page for me / someone that would be using it. It could also be used to serve as an online portfolio/resume page, and if this were the case, then these tabs could use used to store more relevant information like links to a LinkedIn page, a PDF of an actual resume and some information about the creator.
+                        </div>
+                        <div v-if="activetab === 2" class="tabcontent">
+                            My name is Chris Rehagen and I am a junior Information Technology major here at Mizzou. I was born in rasied in St. Charles, Missouri, which is a suburb of St. Louis and just so happens to be the 9th largest city in Missouri according to good ole Wikipedia. The more the know. 
+                            <br><br>
+                            In my free time I enjoy playing golf, which is a sport I've been playing since I was about 9 or 10. I'm also an avid St. Louis sports fan so I find myself procrastinating quite a bit and watchiing Cardinals or Blues games when they're on. I also serve on the executive board for my fraternity here at Mizzou.
+                        </div>
+                        <div v-if="activetab === 3" class="tabcontent">
+                            LinkedIn: <a style="color: #888" href="https://www.linkedin.com/in/christopher-rehagen-943412156/">Visit my LinkedIn</a>
+                            <br>
+                            Github: <a style="color: #888" href="https://github.com/ccrwy5">Visit my GitHub</a>
+                        </div>
+                    </div>
+
+                </div>
+       
+               <div id="app" class="container">
+              <h2>Education</h2>
+              <div class="timeline">
+                  <img src="Images/tigerHead.png" alt="tiger" width="435" height="250" align="right">
+                <ul>
+                  <li v-for="(info, index) in timeline_data" v-bind:key="index">
+                    <span></span>
+                    <div style="font-size: 20px; font-weight: bold">{{ info.level }}</div>
+                    <div style="font-size: 14px; font-weight: bold">{{ info.school }}</div>
+                    <div style="font-size: 14px">{{ info.address }}</div>
+                    <div style="font-style:italic">{{ info.course }}</div>
+                    <div style="font-size: 14px">{{info.gpa}}</div>
+                    <div class="year">
+                      <span>{{ info.yearEnd }}</span>
+                      <span>{{ info.yearStart }}</span>
+                    </div>
+                      
+                  </li>
+                </ul>
+                        
+
+              </div>
+            </div>
+        
+        
+        
+              <script src="exploration3.js"></script>
+        
+        
+
+    </body>
+    
+</html>
